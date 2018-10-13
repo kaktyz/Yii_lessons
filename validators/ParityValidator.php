@@ -3,14 +3,14 @@ namespace app\validators;
 use yii\validators\Validator;
 
 
-class CapsValidator extends Validator
+class ParityValidator extends Validator
 {
     public function validateAttribute($model, $attribute)
     {
-        if ($model == 'name' && $attribute != test){
-            echo 'norm';
+        if ($attribute%2 == 0){
+            echo 'чет';
         }else{
-            echo 'bed';
+            echo 'не чет';
         }
     }
 }
