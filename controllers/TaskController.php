@@ -22,10 +22,12 @@ class TaskController extends Controller
 //    }
 
     public function actionIndex(){
-        $model = new testModel();
-        $model->even = 2;
-        $model->odd = 3;
-        var_dump($model->validate());
+//        $model = new testModel();
+//        $model->even = 2;
+//        $model->odd = 3;
+//        var_dump($model->validate());
+//        $tasks = Tasks::find()->all();
+//        return $this->render('index', ['list'=>$tasks]);
     }
 
     public function actionTest(){
