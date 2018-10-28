@@ -1,12 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: accadmin
- * Date: 13.10.2018
- * Time: 17:08
- */
 
 namespace app\controllers;
+use app\models\tables\Tasks;
 use app\models\tables\Users;
 use app\models\testModel;
 use app\models\User;
@@ -22,6 +17,9 @@ class TaskController extends Controller
 //    }
 
     public function actionIndex(){
+        $month = date('n');
+        $tasks = Tasks::getByMonth($month);
+        return $this->render('index', ['tasks' => $tasks]);
 //        $model = new testModel();
 //        $model->even = 2;
 //        $model->odd = 3;

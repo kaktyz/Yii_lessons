@@ -36,7 +36,8 @@ class Tasks extends \yii\db\ActiveRecord
             [['description'], 'string'],
             [['user_id'], 'integer'],
             [['name'], 'string', 'max' => 255],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['user_id' => 'id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(),
+                'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
@@ -60,5 +61,10 @@ class Tasks extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(Users::className(), ['id' => 'user_id']);
+    }
+    public static function getByMonth($month){
+        return static::find()
+            ->where(["MONTH(date)" => $month])
+            ->all();
     }
 }
