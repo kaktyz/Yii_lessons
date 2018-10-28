@@ -5,6 +5,8 @@ use app\models\tables\Tasks;
 use app\models\tables\Users;
 use app\models\testModel;
 use app\models\User;
+use yii\data\ActiveDataProvider;
+use yii\debug\models\timeline\DataProvider;
 use yii\web\Controller;
 
 class TaskController extends Controller
@@ -18,17 +20,21 @@ class TaskController extends Controller
 
     public function actionIndex(){
         $month = date('n');
-        $tasks = Tasks::getByMonth($month);
-        return $this->render('index', ['tasks' => $tasks]);
+
+        $provider = new ActiveDataProvider([
+            'query' => Tasks::getByMonth($month)
+        ]);
+        return $this->render('index', ['provider' => $provider]);
+
+    }
+
+    public function actionTest(){
 //        $model = new testModel();
 //        $model->even = 2;
 //        $model->odd = 3;
 //        var_dump($model->validate());
 //        $tasks = Tasks::find()->all();
 //        return $this->render('index', ['list'=>$tasks]);
-    }
-
-    public function actionTest(){
 //        $id = 1;
 //        $res = \Yii::$app->db->createCommand("
 //            SELECT * FROM test WHERE id = :id

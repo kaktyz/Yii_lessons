@@ -1,5 +1,11 @@
 <?
 /* @var \app\models\tables\Tasks*/
-foreach ($tasks as $task) :?>
-<p><?=$task->name?></p>
-<?endforeach;?>
+echo \yii\widgets\ListView::widget([
+    'dataProvider' => $provider,
+    'itemView' => 'single_cart',
+    'viewParams' => [
+            'hideBradcrumbs' => true
+    ]
+]);
+
+

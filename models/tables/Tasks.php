@@ -64,7 +64,6 @@ class Tasks extends \yii\db\ActiveRecord
     }
     public static function getByMonth($month){
         return static::find()
-            ->where(["MONTH(date)" => $month])
-            ->all();
+            ->where(["MONTH(date)" => $month]);
     }
 }
