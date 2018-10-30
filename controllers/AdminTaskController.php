@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\tables\Users;
 use Yii;
 use app\models\tables\tasks;
 use app\models\TaskSearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -35,13 +37,13 @@ class AdminTaskController extends Controller
      */
     public function actionIndex()
     {
-//        $searchModel = new TaskSearch();
-//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-//
-//        return $this->render('index', [
-//            'searchModel' => $searchModel,
-//            'dataProvider' => $dataProvider,
-//        ]);
+        $searchModel = new TaskSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**
@@ -70,8 +72,11 @@ class AdminTaskController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+        $users = ArrayHelper::map(Users::find()->all(), 'id',  'login');
+
         return $this->render('create', [
             'model' => $model,
+            'users' => $users
         ]);
     }
 
