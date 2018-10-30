@@ -13,8 +13,14 @@ class m181016_135533_create_role_table extends Migration
     public function safeUp()
     {
         $this->createTable('role', [
-            'role_id' => $this->primaryKey(),
-            'name' => $this->string(50)
+            'role_id' => $this
+                ->primaryKey(),
+            'name' => $this
+                ->string(50),
+            'created_at' => $this
+                ->dateTime(),
+            'updated' => $this
+                ->dateTime()
         ]);
     }
 

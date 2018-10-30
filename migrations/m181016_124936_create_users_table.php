@@ -23,7 +23,11 @@ class m181016_124936_create_users_table extends Migration
                 ->notNull(),
             'role' => $this
                 ->integer()
-                ->defaultValue(1)
+                ->defaultValue(1),
+            'created_at' => $this
+                ->dateTime(),
+            'updated' => $this
+                ->dateTime()
         ]);
         $this->createIndex("ix_users_login", "users", "login");
     }
