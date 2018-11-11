@@ -19,7 +19,7 @@ class m181016_135533_create_role_table extends Migration
                 ->string(50),
             'created_at' => $this
                 ->dateTime(),
-            'updated' => $this
+            'updated_at' => $this
                 ->dateTime()
         ]);
     }

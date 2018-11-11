@@ -57,7 +57,9 @@ class TaskController extends Controller
 
         /*Del*/
 
-        $user = Users::findOne(2);
-        var_dump($user->getRole());
+//        $user = Users::findOne(2);
+//        var_dump($user->getRole());
+    $model = new testModel();
+    $model->bar();
     }
 }

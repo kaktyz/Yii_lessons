@@ -1,5 +1,6 @@
 <?php
 namespace app\models;
+use app\behaviors\MyBehavior;
 use yii\base\Model;
 
 class testModel extends Model
@@ -16,4 +17,10 @@ class testModel extends Model
         ];
     }
 
+    public function behaviors()
+    {
+        return [
+            'my' => MyBehavior::class
+        ];
+    }
 }

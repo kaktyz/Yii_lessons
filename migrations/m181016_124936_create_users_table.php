@@ -24,9 +24,12 @@ class m181016_124936_create_users_table extends Migration
             'role' => $this
                 ->integer()
                 ->defaultValue(1),
+            'email' => $this
+                ->string()
+                ->notNull(),
             'created_at' => $this
                 ->dateTime(),
-            'updated' => $this
+            'updated_at' => $this
                 ->dateTime()
         ]);
         $this->createIndex("ix_users_login", "users", "login");

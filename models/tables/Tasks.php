@@ -21,16 +21,14 @@ use yii\db\Expression;
 class Tasks extends \yii\db\ActiveRecord
 {
     public function behaviors()
-    {
-        return [
+  {
+      return [
           [
-            'class' => TimestampBehavior::class,
-//              'createdAtAttribute' => 'create_time',
-//              'updatedAtAttribute' => 'update_time',
+              'class' => TimestampBehavior::class,
               'value' => new Expression('NOW()'),
           ],
-        ];
-    }
+      ];
+  }
 
     /**
      * {@inheritdoc}

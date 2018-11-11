@@ -20,7 +20,7 @@ class m181023_113219_create_tasks_table extends Migration
            'user_id' => $this->integer(),
            'created_at' => $this
                ->dateTime(),
-           'updated' => $this
+           'updated_at' => $this
                ->dateTime()
        ]);
 

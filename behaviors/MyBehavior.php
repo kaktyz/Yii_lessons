@@ -13,5 +13,7 @@ use yii\base\Behavior;
 
 class MyBehavior extends Behavior
 {
-
+ public function bar(){
+     echo 'message!';
+ }
 }
